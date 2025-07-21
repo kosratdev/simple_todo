@@ -4,6 +4,8 @@ A production-ready Flutter todo application demonstrating best practices for bui
 
 ## 📚 About Flutter Ship Series
 
+![Flutter Ship](assets/images/flutter-ship.webp)
+
 This repository accompanies the comprehensive **Flutter Ship** tutorial series, which guides Flutter developers through building production-ready applications. Each branch in this repository corresponds to a specific article in the series.
 
 ### 📖 Tutorial Articles
