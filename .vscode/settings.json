@@ -1,0 +1,7 @@
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Generate a commit message that MUST follow the Conventional Commits format (feat, fix, docs, style, refactor, test, perf, build, ci, chore, revert). Include a brief description of the change in the subject line (under 72 characters) and a summarized explanation in the body, if necessary. Separate the subject and body with a blank line. Example: 'feat(auth): Add forgot password functionality to the login screen' or 'fix(products): Fix date format in the product list'."
+    }
+  ]
+}
