@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../flavors.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:simple_todo/utils/env_extension.dart';
+import '../utils/flavors.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -8,7 +10,15 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(F.title)),
-      body: Center(child: Text('Hello ${F.title}')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Flavor: ${F.title}'),
+            Text('Base URL: ${dotenv.baseUrl}'),
+          ],
+        ),
+      ),
     );
   }
 }
