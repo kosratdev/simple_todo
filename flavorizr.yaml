@@ -1,0 +1,30 @@
+flavors:
+  dev:
+    app:
+      name: "DEV Todo"
+
+    android:
+      applicationId: "dev.kosrat.simpletodo.dev"
+      icon: "assets/app_icons/android/dev/legacy.png"
+      adaptiveIcon:
+        foreground: "assets/app_icons/android/dev/foreground.png"
+        background: "assets/app_icons/android/dev/background.png"
+        monochrome: "assets/app_icons/android/dev/monochrome.png"
+
+    ios:
+      bundleId: "dev.kosrat.simpletodo.dev"
+
+  prod:
+    app:
+      name: "Simple Todo"
+
+    android:
+      applicationId: "dev.kosrat.simpletodo"
+      icon: "assets/app_icons/android/prod/legacy.png"
+      adaptiveIcon:
+        foreground: "assets/app_icons/android/prod/foreground.png"
+        background: "assets/app_icons/android/prod/background.png"
+        monochrome: "assets/app_icons/android/prod/monochrome.png"
+
+    ios:
+      bundleId: "dev.kosrat.simpletodo"
