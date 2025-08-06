@@ -1,1 +1,18 @@
 include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    always_declare_return_types: true
+    avoid_redundant_argument_values: true
+    unawaited_futures: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    cancel_subscriptions: true
+    close_sinks: true
+    combinators_ordering: true
+    comment_references: true
+    one_member_abstracts: true
+    use_super_parameters: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true

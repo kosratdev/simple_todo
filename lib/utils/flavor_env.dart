@@ -11,7 +11,7 @@ extension FlavorEnv on DotEnv {
         await load(fileName: '.env.dev');
         break;
       case 'prod':
-        await load(fileName: '.env');
+        await load();
         break;
       default:
         throw Exception('Unknown flavor');
