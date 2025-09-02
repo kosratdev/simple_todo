@@ -1,4 +1,4 @@
-name: Flutter PR CI
+name: Flutter PR Checks
 
 on:
   pull_request:
@@ -6,24 +6,41 @@ on:
       - main
 
 jobs:
-  analyze_and_test:
-    name: Analyze & Test
+  commitlint:
     runs-on: ubuntu-latest
+    name: Conventional Commitlint
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Conventional Commitlint
+        uses: opensource-nepal/commitlint@v1
+
+  analyze:
+    runs-on: ubuntu-latest
+    name: Flutter Analyze
+    needs: commitlint
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version-file: pubspec.yaml
-          cache: true
-
-      - name: Install dependencies
-        run: flutter pub get
-
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
       - name: Analyze code
-        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+        run: flutter analyze
 
-      - name: Run tests
-        run: flutter test
+  test:
+    runs-on: ubuntu-latest
+    name: Flutter Tests
+    needs: analyze
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
+      - name: Run tests with coverage
+        run: flutter test --coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/lcov.info
+          fail_ci_if_error: false

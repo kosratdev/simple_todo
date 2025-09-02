@@ -7,7 +7,7 @@ pre-commit:
       glob: "*.dart"
       run: dart format {staged_files} && git add {staged_files}
     linter:
-      run: flutter analyze {staged_files} --no-fatal-infos --no-fatal-warnings
+      run: flutter analyze {staged_files}
 
 commit-msg:
   commands:
